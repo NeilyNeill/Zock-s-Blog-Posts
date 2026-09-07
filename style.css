@@ -1,0 +1,325 @@
+/* ---------------------------------------------
+   Tokens
+--------------------------------------------- */
+:root {
+  --paper: #F6F2E8;
+  --paper-line: #DCD3BE;
+  --ink: #211C15;
+  --ink-soft: #6B6255;
+  --cobalt: #2C4A8C;
+  --cobalt-dark: #1E3564;
+  --rust: #B24E27;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { color: var(--cobalt); }
+
+/* ---------------------------------------------
+   Masthead
+--------------------------------------------- */
+.masthead {
+  border-bottom: 3px solid var(--ink);
+  padding: 54px 0 30px;
+}
+
+.masthead__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.masthead__tagline {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* ---------------------------------------------
+   Composer
+--------------------------------------------- */
+.composer { padding: 40px 0 28px; }
+
+.composer__row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 18px;
+}
+
+.composer__index {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  padding-top: 10px;
+}
+
+.composer__title {
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  padding: 6px 0;
+  border-bottom: 2px solid var(--paper-line);
+  color: var(--ink);
+}
+
+.composer__title::placeholder { color: #A79E8C; }
+
+.composer__title:focus-visible,
+.composer__text:focus-visible {
+  outline: none;
+  border-color: var(--cobalt);
+}
+
+.composer__text {
+  width: 100%;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  border: none;
+  border-bottom: 2px solid var(--paper-line);
+  background: transparent;
+  padding: 8px 0;
+  resize: vertical;
+}
+
+.composer__text::placeholder { color: #A79E8C; }
+
+.composer__media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.mediathumb {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  background: #000;
+}
+
+.mediathumb img,
+.mediathumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mediathumb__remove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.composer__controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.filebtn {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border: 2px solid var(--paper-line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.filebtn:hover { border-color: var(--cobalt); color: var(--cobalt); }
+
+.publishbtn {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: var(--cobalt);
+  color: var(--paper);
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 26px;
+  cursor: pointer;
+}
+
+.publishbtn:hover,
+.publishbtn:focus-visible { background: var(--cobalt-dark); }
+.publishbtn:focus-visible { outline: 3px solid var(--rust); outline-offset: 2px; }
+.publishbtn:disabled { background: #A79E8C; cursor: not-allowed; }
+
+.composer__hint {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: var(--rust);
+  min-height: 1.2em;
+}
+
+/* ---------------------------------------------
+   Divider
+--------------------------------------------- */
+.rule {
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px);
+  opacity: 0.5;
+}
+
+/* ---------------------------------------------
+   Feed
+--------------------------------------------- */
+.feed { padding: 30px 0 80px; }
+
+.feed__empty {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--font-display);
+  padding: 20px 0;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 18px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.post:last-child { border-bottom: none; }
+
+.post__meta {
+  padding-top: 4px;
+}
+
+.post__index {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  display: block;
+}
+
+.post__date {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+  display: block;
+}
+
+.post__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+}
+
+.post__text {
+  margin: 0 0 14px;
+  color: var(--ink);
+  white-space: pre-line;
+}
+
+.post__media {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.post__media img,
+.post__media video {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 2px solid var(--ink);
+  display: block;
+  background: #000;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.post__media video { object-fit: contain; }
+
+.post__delete {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rust);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.post__delete:hover { text-decoration: underline; }
+
+/* ---------------------------------------------
+   Footer
+--------------------------------------------- */
+.site-footer {
+  border-top: 3px solid var(--ink);
+  padding: 20px 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------
+   Responsive
+--------------------------------------------- */
+@media (max-width: 560px) {
+  .composer__row,
+  .post {
+    grid-template-columns: 1fr;
+  }
+  .composer__index,
+  .post__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .publishbtn { margin-left: 0; width: 100%; }
+}

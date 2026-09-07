@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zock's Posts</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <h1>Zock's Posts</h1>
+      <p>Post whatever, idc</p>
+    </header>
+
+    <section class="composer">
+      <span id="composerIndex" hidden></span>
+      <input id="postTitle" type="text" placeholder="Title" />
+      <textarea id="postBody" placeholder="Write something…"></textarea>
+
+      <div id="mediaPreview" class="mediaPreview" hidden></div>
+
+      <div class="composer__actions">
+        <div class="composer__media-btns">
+          <label>
+            🖼 Images
+            <input id="imageInput" type="file" accept="image/*" multiple />
+          </label>
+          <label>
+            🎞 Video
+            <input id="videoInput" type="file" accept="video/*" />
+          </label>
+        </div>
+        <button id="publishBtn" type="button">Publish</button>
+      </div>
+      <span id="composerHint"></span>
+    </section>
+
+    <section id="feed">
+      <p id="feedEmpty">No posts yet — write your first one above.</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
